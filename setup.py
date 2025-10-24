@@ -24,5 +24,5 @@ setup(
     author="M Mohsin",
     description="Data Science Project",
     packages=find_packages(),
-    install_requires=get_requirements(),
+    install_requires=get_requirements('requirements.txt'),
 )
