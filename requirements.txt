@@ -1,37 +1,23 @@
-# Core
 pandas
 numpy
-
-# Visualization
 matplotlib
 seaborn
 plotly
-
-# Machine Learning
 scikit-learn
 xgboost
 lightgbm
 catboost
-
-# Feature Engineering & Preprocessing
 category_encoders
 scipy
 imblearn
-
-# Model Explainability
 shap
 lime
-
-# Utility
 tqdm
 joblib
 python-dotenv
-
-# Data Cleaning
 missingno
 pandas-profiling
-
-# Development
 jupyter
 notebook
 ipykernel
+-e .
