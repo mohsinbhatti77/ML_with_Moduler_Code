@@ -19,7 +19,7 @@ def get_requirements(file_path:str)->List[str]:
     return requirements
 
 setup(
-    name="loan_default_analysis",
+    name="Modular coding",
     version="0.1.0",
     author="M Mohsin",
     description="Data Science Project",
