@@ -10,16 +10,16 @@ from dataclasses import dataclass
 
 @dataclass
 class DataIngestionConfig:
-    train_data_path:str = os.path.join('artfifact', "train.csv")
-    test_data_path:str = os.path.join('artfifact', "test.csv")
-    raw_data_path:str = os.path.join('artfifact', "raw.csv")
+    train_data_path: str = os.path.join('artifact', "train.csv")
+    test_data_path: str = os.path.join('artifact', "test.csv")
+    raw_data_path: str = os.path.join('artifact', "raw.csv")
 
 class DataIngestion:
     def __init__(self):
         self.ingestion_config = DataIngestionConfig()
 
     def initiate_data_ingestion(self):
-        logging.info('Enered the data ingestion methood')       
+        logging.info('Entered the data ingestion method')       
         try:
             df = pd.read_csv('Data/stud.csv') 
             logging.info('Read the dataset as dataframe')
@@ -27,15 +27,15 @@ class DataIngestion:
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True)
             df.to_csv(self.ingestion_config.raw_data_path, index=False, header=True)
 
-            logging.info('Train test split initiated')
-            train_set,test_set = train_test_split(df, test_size=0.25, random_state=42)
+            logging.info('Train-test split initiated')
+            train_set, test_set = train_test_split(df, test_size=0.25, random_state=42)
 
             train_set.to_csv(self.ingestion_config.train_data_path, index=False, header=True)
             test_set.to_csv(self.ingestion_config.test_data_path, index=False, header=True)
 
-            logging.info('Data Ingestion Completed')
+            logging.info('Data ingestion completed')
             
-            return(
+            return (
                 self.ingestion_config.train_data_path,
                 self.ingestion_config.test_data_path
             )
@@ -43,7 +43,6 @@ class DataIngestion:
             raise CustomException(e, sys)
         
 
-
-if __name__ =="__main__":
-    obj = DataIngestion()
-    obj.initiate_data_ingestion
+# if __name__ =="__main__":
+#     obj = DataIngestion()
+#     obj.initiate_data_ingestion()
