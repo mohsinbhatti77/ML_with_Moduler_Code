@@ -10,9 +10,9 @@ from dataclasses import dataclass
 
 @dataclass
 class DataIngestionConfig:
-    train_data_path:str = os.join('artfifact', "train.csv")
-    test_data_path:str = os.join('artfifact', "test.csv")
-    raw_data_path:str = os.join('artfifact', "raw.csv")
+    train_data_path:str = os.path.join('artfifact', "train.csv")
+    test_data_path:str = os.path.join('artfifact', "test.csv")
+    raw_data_path:str = os.path.join('artfifact', "raw.csv")
 
 class DataIngestion:
     def __init__(self):
@@ -36,11 +36,14 @@ class DataIngestion:
             logging.info('Data Ingestion Completed')
             
             return(
-                self.ingestion_config.train_data_path
+                self.ingestion_config.train_data_path,
                 self.ingestion_config.test_data_path
-
-
-
             )
-        except:
+        except Exception as e:
+            raise CustomException(e, sys)
+        
 
+
+if __name__ =="__main__":
+    obj = DataIngestion()
+    obj.initiate_data_ingestion
